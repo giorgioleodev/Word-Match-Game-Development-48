@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ScoreBoard = ({ score, bestScore }) => {
+const ScoreBoard = ({ score, bestScore, translations }) => {
   return (
     <motion.div 
       className="flex justify-between mb-6 p-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl text-white font-bold"
@@ -10,7 +10,7 @@ const ScoreBoard = ({ score, bestScore }) => {
       transition={{ delay: 0.1 }}
     >
       <div className="text-center">
-        <div className="text-sm mb-1">Score</div>
+        <div className="text-sm mb-1">{translations.score}</div>
         <motion.div 
           className="text-2xl"
           key={score}
@@ -22,7 +22,7 @@ const ScoreBoard = ({ score, bestScore }) => {
         </motion.div>
       </div>
       <div className="text-center">
-        <div className="text-sm mb-1">Best</div>
+        <div className="text-sm mb-1">{translations.best}</div>
         <motion.div 
           className="text-2xl"
           key={bestScore}

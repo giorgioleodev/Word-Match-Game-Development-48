@@ -1,28 +1,19 @@
-export const WORDS = [
-  'cat', 'dog', 'run', 'fun', 'sun', 'red', 'blue', 'tree', 'book', 'game',
-  'play', 'word', 'love', 'home', 'time', 'make', 'take', 'come', 'work', 'hand',
-  'eyes', 'life', 'good', 'long', 'back', 'way', 'day', 'new', 'old', 'see',
-  'him', 'two', 'how', 'now', 'get', 'has', 'had', 'let', 'put', 'end',
-  'why', 'try', 'ask', 'men', 'run', 'own', 'say', 'she', 'may', 'use',
-  'water', 'sound', 'place', 'where', 'right', 'great', 'small', 'every',
-  'found', 'still', 'name', 'very', 'through', 'just', 'form', 'sentence',
-  'think', 'help', 'low', 'line', 'differ', 'turn', 'cause', 'much', 'mean',
-  'before', 'move', 'right', 'boy', 'old', 'too', 'same', 'tell', 'does',
-  'set', 'three', 'want', 'air', 'well', 'also', 'after', 'back', 'other',
-  'many', 'them', 'these', 'so', 'some', 'her', 'would', 'make', 'like',
-  'into', 'him', 'time', 'has', 'look', 'two', 'more', 'write', 'go', 'see',
-  'no', 'way', 'could', 'people', 'my', 'than', 'first', 'been', 'call',
-  'who', 'oil', 'sit', 'now', 'find', 'long', 'down', 'day', 'did', 'get',
-  'come', 'made', 'may', 'part', 'over', 'new', 'sound', 'take', 'only',
-  'little', 'work', 'know', 'place', 'year', 'live', 'me', 'back', 'give',
-  'most', 'very', 'after', 'thing', 'our', 'just', 'name', 'good', 'sentence',
-  'man', 'think', 'say', 'great', 'where', 'help', 'through', 'much', 'before',
-  'line', 'right', 'too', 'mean', 'old', 'any', 'same', 'tell', 'boy', 'follow',
-  'came', 'want', 'show', 'also', 'around', 'form', 'three', 'small', 'set',
-  'put', 'end', 'why', 'again', 'turn', 'here', 'how', 'go', 'about', 'up',
-  'out', 'many', 'then', 'them', 'these', 'so', 'some', 'her', 'would',
-  'make', 'like', 'into', 'him', 'time', 'has', 'look', 'two', 'more',
-  'write', 'see', 'number', 'no', 'way', 'could', 'people', 'my', 'than',
-  'first', 'been', 'call', 'who', 'oil', 'sit', 'now', 'find', 'long',
-  'down', 'day', 'did', 'get', 'come', 'made', 'may', 'part'
+export const ENGLISH_WORDS = [
+  'cat', 'dog', 'fun', 'game', 'play', 'time', 'blue', 'red', 'green',
+  'run', 'sun', 'tree', 'book', 'word', 'love', 'home', 'make', 'take', 
+  'come', 'work', 'hand', 'eyes', 'life', 'good', 'long', 'back', 'way', 
+  'day', 'new', 'old', 'see', 'him', 'two', 'how', 'now', 'get', 'has', 
+  'had', 'let', 'put', 'end', 'why', 'try', 'ask', 'men', 'run', 'own', 
+  'say', 'she', 'may', 'use', 'water', 'sound', 'place', 'where', 'right', 
+  'great', 'small', 'every', 'found', 'still', 'name', 'very', 'through', 
+  'just', 'form', 'sentence', 'think', 'help'
+];
+
+export const ITALIAN_WORDS = [
+  'cane', 'gatto', 'sole', 'mare', 'amore', 'vita', 'tempo', 'gioco', 'mela',
+  'casa', 'bene', 'auto', 'luna', 'cielo', 'fiore', 'pane', 'vino', 'arte',
+  'rosa', 'nero', 'bianco', 'rosso', 'verde', 'blu', 'giallo', 'viola', 'oro',
+  'libro', 'porta', 'letto', 'sedia', 'tavolo', 'fuoco', 'acqua', 'terra',
+  'aria', 'luce', 'ombra', 'notte', 'giorno', 'mese', 'anno', 'oggi', 'ieri',
+  'domani', 'sempre', 'mai', 'tutto', 'nulla', 'molto', 'poco'
 ];

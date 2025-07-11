@@ -5,7 +5,9 @@ import ScoreBoard from './components/ScoreBoard';
 import Controls from './components/Controls';
 import Instructions from './components/Instructions';
 import WordFoundNotification from './components/WordFoundNotification';
-import { WORDS } from './utils/wordDictionary';
+import LanguageSwitch from './components/LanguageSwitch';
+import { ENGLISH_WORDS, ITALIAN_WORDS } from './utils/wordDictionary';
+import { translations } from './utils/translations';
 import './App.css';
 
 const GRID_SIZE = 7;
@@ -21,6 +23,8 @@ function App() {
   );
   const [foundWords, setFoundWords] = useState([]);
   const [animatingTiles, setAnimatingTiles] = useState(new Set());
+  const [language, setLanguage] = useState('en');
+  const [dictionary, setDictionary] = useState(ENGLISH_WORDS);
 
   const generateLetters = useCallback(() => {
     const newGrid = [];
@@ -114,7 +118,7 @@ function App() {
     for (let row = 0; row < GRID_SIZE; row++) {
       for (let col = 0; col <= GRID_SIZE - 3; col++) {
         const word = getHorizontalWord(row, col);
-        if (word.length >= 3 && WORDS.includes(word.toLowerCase())) {
+        if (word.length >= 3 && dictionary.includes(word.toLowerCase())) {
           const indices = [];
           for (let i = 0; i < word.length; i++) {
             indices.push(row * GRID_SIZE + col + i);
@@ -128,7 +132,7 @@ function App() {
     for (let col = 0; col < GRID_SIZE; col++) {
       for (let row = 0; row <= GRID_SIZE - 3; row++) {
         const word = getVerticalWord(row, col);
-        if (word.length >= 3 && WORDS.includes(word.toLowerCase())) {
+        if (word.length >= 3 && dictionary.includes(word.toLowerCase())) {
           const indices = [];
           for (let i = 0; i < word.length; i++) {
             indices.push((row + i) * GRID_SIZE + col);
@@ -142,7 +146,7 @@ function App() {
     for (let row = 0; row <= GRID_SIZE - 3; row++) {
       for (let col = 0; col <= GRID_SIZE - 3; col++) {
         const word = getDiagonalWord(row, col, 1, 1);
-        if (word.length >= 3 && WORDS.includes(word.toLowerCase())) {
+        if (word.length >= 3 && dictionary.includes(word.toLowerCase())) {
           const indices = [];
           for (let i = 0; i < word.length; i++) {
             indices.push((row + i) * GRID_SIZE + col + i);
@@ -156,7 +160,7 @@ function App() {
     for (let row = 0; row <= GRID_SIZE - 3; row++) {
       for (let col = 2; col < GRID_SIZE; col++) {
         const word = getDiagonalWord(row, col, 1, -1);
-        if (word.length >= 3 && WORDS.includes(word.toLowerCase())) {
+        if (word.length >= 3 && dictionary.includes(word.toLowerCase())) {
           const indices = [];
           for (let i = 0; i < word.length; i++) {
             indices.push((row + i) * GRID_SIZE + col - i);
@@ -169,7 +173,7 @@ function App() {
     if (foundWordsData.length > 0) {
       processFoundWords(foundWordsData);
     }
-  }, [getHorizontalWord, getVerticalWord, getDiagonalWord]);
+  }, [getHorizontalWord, getVerticalWord, getDiagonalWord, dictionary]);
 
   const calculateWordScore = useCallback((word) => {
     const baseScore = word.length * 10;
@@ -270,6 +274,14 @@ function App() {
     }
   }, [selectedTile, areAdjacent, swapTiles, checkForWords]);
 
+  const handleLanguageSwitch = useCallback(() => {
+    setLanguage(prevLang => {
+      const newLang = prevLang === 'en' ? 'it' : 'en';
+      setDictionary(newLang === 'en' ? ENGLISH_WORDS : ITALIAN_WORDS);
+      return newLang;
+    });
+  }, []);
+
   useEffect(() => {
     newGame();
   }, [newGame]);
@@ -293,15 +305,27 @@ function App() {
           </h1>
         </motion.div>
         
-        <ScoreBoard score={score} bestScore={bestScore} />
+        <ScoreBoard 
+          score={score} 
+          bestScore={bestScore} 
+          translations={translations[language]}
+        />
         <GameGrid 
           grid={grid}
           selectedTile={selectedTile}
           animatingTiles={animatingTiles}
           onTileClick={handleTileClick}
         />
-        <Controls onNewGame={newGame} />
-        <Instructions />
+        <Controls 
+          onNewGame={newGame} 
+          translations={translations[language]}
+        />
+        <Instructions translations={translations[language]} />
+        <LanguageSwitch 
+          language={language} 
+          onSwitch={handleLanguageSwitch} 
+          translations={translations[language]}
+        />
       </motion.div>
       
       <AnimatePresence>

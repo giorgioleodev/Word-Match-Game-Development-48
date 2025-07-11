@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Controls = ({ onNewGame }) => {
+const Controls = ({ onNewGame, translations }) => {
   return (
     <motion.div 
       className="flex justify-center mb-6"
@@ -20,7 +20,7 @@ const Controls = ({ onNewGame }) => {
         whileTap={{ scale: 0.95 }}
         transition={{ duration: 0.2 }}
       >
-        New Game
+        {translations.newGame}
       </motion.button>
     </motion.div>
   );
